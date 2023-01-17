@@ -1,0 +1,57 @@
+  <div class="Container xs" style="width: 100%;">
+
+      <div class="container-fluid mt-4 ct">
+
+          <div class="row mx-auto mb-3">
+              <div class="col-md-8"></div>
+              <div class="col-md-4 align-items-end">
+                  <div class="card mx-auto" >
+                      <div class="card-body text-center">
+                          <h3 class="card-title">{{uliste.length}}</h3>
+                          <h3 class="card-subtitle mb-2 text-muted" style="color: red!important;">Utilisateurs</h3>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- debut de la table -->
+
+          <div class="table-responsive-sm mx-auto tb">
+              <div class="row">
+                  <div class="col-md-4">
+                     <h2>Listes des Utilisateurs</h2>
+                  </div>
+                  <div class="col-md-4 offset-md-4">
+                      <form class="d-flex text-end mb-2">
+                          <input type="search" class="form-control sh mx-auto" placeholder="Recherchez une dette">
+                          <button class="btn" type="submit">Rechercher</button>
+                        </form>
+                  </div>
+              </div>
+              <table class="table mx-auto text-center">
+              <thead>
+                <tr class="tables" >
+                  <th scope="col" style="border-radius: 10px 0 0 0 ;">Username</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Numero</th>
+                  <th scope="col">Adresse</th>
+                  <th scope="col">Role</th>
+                  <th scope="col" style="border-radius: 0 10px 0 0 ;">Action
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let liste of uliste">
+                  <th scope="row">{{liste.username}}</th>
+                  <td>{{liste.email}}</td>
+                  <td>{{liste.numero}}</td>
+                  <td> {{liste.adresse}}</td>
+                  <td>{{liste.roles[0].name}}</td>
+                  <td><a routerLink="['', 'liste.id']"><i class="bi bi-pencil-square mx-auto"></i></a>  <a routerLink="['', 'liste.id']" ><i class="bi bi-trash3 mx-2"></i></a></td>
+                </tr>
+              </tbody>
+              </table>
+          </div>
+
+      </div>
+  </div>
+
