@@ -1,0 +1,65 @@
+<div class="Container xs" style="width: 100%;">
+
+  <div class="container-fluid mt-4 ct">
+
+      <div class="row mx-auto mb-3 mt-3 justify-content-center">
+        <div class="col-10">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="card mx-2" >
+                <div class="card-body text-center">
+                    <h3 class="card-title">{{eliste.length}}</h3>
+                    <h3 class="card-subtitle mb-2 text-muted" style="color: red!important;">Etités</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5 offset-md-2 align-items-end">
+                <div class="card mx-2" >
+                    <div class="card-body text-center">
+                        <h3 class="card-title">{{uliste.length}}</h3>
+                        <h3 class="card-subtitle mb-2 text-muted" style="color: red!important;">Utilisateurs</h3>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- debut de la table -->
+
+      <div class="table-responsive-sm mx-auto tb">
+          <div class="row mx-auto justify-content-between" style="width: 95%;">
+              <div class="col-md-4 text-center">
+                 <h2>Listes des Entités</h2>
+              </div>
+              <div class="col-md-4 text-center ">
+                  <button class="btn btn-outline-primary mx-5">Ajouter une Entite</button>
+              </div>
+          </div>
+          <table class="table mx-auto text-center">
+          <thead>
+            <tr class="tables" >
+              <th scope="col" style="border-radius: 10px 0 0 0 ;">Nom</th>
+              <th scope="col">Numero</th>
+              <th scope="col">Responsable</th>
+              <th scope="col" style="border-radius: 0 10px 0 0 ;">Action
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let liste of eliste">
+              <th scope="row">{{liste.nom}}</th>
+              <td>{{liste.numero}}</td>
+              <td>{{eliste[0].user.username}}</td>
+              <td><a routerLink="['', 'liste.id']"><i class="bi bi-pencil-square mx-auto"></i></a>  <a routerLink="['', 'liste.id']" ><i class="bi bi-trash3 mx-2"></i></a></td>
+            </tr>
+          </tbody>
+          </table>
+      </div>
+
+  </div>
+</div>
+
+

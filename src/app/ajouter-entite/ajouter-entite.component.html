@@ -1,0 +1,49 @@
+<div class="Container xs" style="width: 100%;">
+
+  <div class="container-fluid mt-4 ct">
+
+    <div class="forme mx-auto d-block">
+      <div class="boite justify-content-center">
+      </div>
+
+      <p class="col">Ajouter une entité</p>
+
+      <div class="col">
+        <div class="form">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="nom" name="nom">
+            <label for="floatingInput">Nom</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="numero" name="numero">
+            <label for="floatingInput">Numero</label>
+          </div>
+
+          <div class="row mb-2">
+            <div class="mb-3">
+              <input class="form-control form-control-sm" id="formFileSm" accept="image/png, image/jpeg" type="file" name="img" formControlName="img" (change)="filechange($event)">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col">
+              <select class="form-select" aria-label="select example" [(ngModel)]="id" name="id">
+                <option selected>--Choisir responsable--</option>
+                <option *ngFor="let liste of uliste" value="{{liste.id}}">{{liste.username}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col text-center">
+            <button (click)="ajoutEntite()">Ajouter</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
