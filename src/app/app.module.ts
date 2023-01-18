@@ -8,13 +8,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { EntiteComponent } from './entite/entite.component';
 import { AjouterEntiteComponent } from './ajouter-entite/ajouter-entite.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AjouterResponsableComponent } from './ajouter-responsable/ajouter-responsable.component';
+import { AjouterGesteComponent } from './ajouter-geste/ajouter-geste.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
     EntiteComponent,
-    AjouterEntiteComponent
+    AjouterEntiteComponent,
+    AjouterResponsableComponent,
+    AjouterGesteComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
