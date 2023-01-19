@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { UtilisateurService } from './services/utilisateur.service';
-import { TokenService } from './_services/token.service';
+import { Component, OnInit } from '@angular/core';
+import { UtilisateurService } from '../services/utilisateur.service';
+import { TokenService } from '../_services/token.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss']
 })
-export class AppComponent {
+export class SidebarComponent implements OnInit {
 
   private roles: string[] = [];
   isLogged = false;
@@ -42,5 +42,4 @@ export class AppComponent {
   deconect(): void{
     this.tokenService.logout()
   }
- }
-
+}

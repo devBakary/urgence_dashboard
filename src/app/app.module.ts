@@ -12,6 +12,7 @@ import { AjouterResponsableComponent } from './ajouter-responsable/ajouter-respo
 import { AjouterGesteComponent } from './ajouter-geste/ajouter-geste.component';
 import { LoginComponent } from './login/login.component';
 import { ProfilComponent } from './profil/profil.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProfilComponent } from './profil/profil.component';
     AjouterResponsableComponent,
     AjouterGesteComponent,
     LoginComponent,
-    ProfilComponent
+    ProfilComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

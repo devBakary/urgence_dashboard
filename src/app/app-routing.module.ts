@@ -5,44 +5,54 @@ import { AjouterEntiteComponent } from './ajouter-entite/ajouter-entite.componen
 import { AjouterGesteComponent } from './ajouter-geste/ajouter-geste.component';
 import { AjouterResponsableComponent } from './ajouter-responsable/ajouter-responsable.component';
 import { EntiteComponent } from './entite/entite.component';
+import { AuthGuard } from './Helper/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { ProfilComponent } from './profil/profil.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo:"/accueil",
+    redirectTo:"/login",
     pathMatch: 'full'
 },
 
-  {
-    path: "accueil",
-    component: AccueilComponent,
-  },
-  {
-    path: "entite",
-    component: EntiteComponent,
-  },
-  {
-    path: "ajouter_entite",
-    component: AjouterEntiteComponent,
-  },
-  {
-    path: "ajouter_responsable",
-    component: AjouterResponsableComponent,
-  },
-  {
-    path: "login",
-    component: LoginComponent,
-  },
-  {
-    path: "ajouter_geste",
-    component: AjouterGesteComponent,
-  },
-  {
-    path: "profile",
-    component: ProfilComponent,
-  },
+{
+  path: "login",
+  component: LoginComponent,
+},
+
+{
+  path: "sidebar",
+  component: SidebarComponent, canActivate: [AuthGuard],
+  children: [
+    {
+      path: "accueil",
+      component: AccueilComponent
+    },
+    {
+      path: "entite",
+      component: EntiteComponent,
+    },
+    {
+      path: "ajouter_entite",
+      component: AjouterEntiteComponent
+    },
+    {
+      path: "ajouter_responsable",
+      component: AjouterResponsableComponent
+    },
+    {
+      path: "ajouter_geste",
+      component: AjouterGesteComponent
+    },
+    {
+      path: "profile",
+      component: ProfilComponent, canActivate: [AuthGuard],
+    },
+  ]
+},
+
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 <div class="Container xs justify-content-center">
 
-  <div class="row align-self-center">
-    <div class="col-8 xs mx-auto d-block forme">
+  <div class="row">
+    <div class="col-6 xs mx-auto d-block forme">
 
       <div class="row">
 
@@ -11,21 +11,62 @@
             <div class="col mb-3 text-center">
               <p>Authentification</p>
             </div>
-            <div class=" col-10 form-floating mx-auto mb-4">
-              <input type="text" class="form-control" id="floatingPassword" placeholder="votre nom d'utilisateur">
-              <label for="floatingPassword">Username</label>
-            </div>
+
+            <form *ngIf="!isLoggedIn"
+                  name="form"
+                  (ngSubmit)="f.form.valid && onSubmit()"
+                  #f="ngForm"
+                  novalidate>
+
+                  <div class=" col-10 form-floating mx-auto mb-4">
+                    <input type="text" class="form-control" id="floatingPassword"
+                     placeholder="votre nom d'utilisateur"
+                     name="username"
+                     [(ngModel)]="form.username"
+                     required
+                     #username="ngModel"
+                     [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
+                    <label for="floatingPassword">Username</label>
+                    <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
+                      Le nom d'utilisateur est obligatoire !
+                    </div>
+                  </div>
+
+
+                  <div class="form-floating col-10 mx-auto mb-4">
+                    <input type="password" class="form-control" id="floatingPassword"
+                       placeholder="votre mot de passe"
+                       name="password"
+                       [(ngModel)]="form.password"
+                       required
+                       #password="ngModel"
+                       [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
+                    <label for="floatingPassword">Mot de passe</label>
+
+                    <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+                      <div *ngIf="password.errors['required']">
+                        Le mot de passe est obligatoire !
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <button class="mx-auto d-block text-center button">Connexion</button>
+
+                  <div class="form-group">
+                    <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+                      Login failed: {{ errorMessage }}
+                    </div>
+                  </div>
+
+                </form>
+
           </div>
 
 
-          <div class="row">
-            <div class="form-floating col-10 mx-auto mb-4">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="votre mot de passe">
-              <label for="floatingPassword">Mot de passe</label>
-            </div>
-          </div>
 
-          <button class="mx-auto d-block text-center">Connexion</button>
+
+
 
         </div>
         <!-- partie droite -->

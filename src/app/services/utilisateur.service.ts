@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
+import { ICredentials } from '../_interfaces/credentials';
+import { IToken } from '../_interfaces/token';
 
 const AUTH_API = 'http://localhost:8080/urgence/auth/';
 
@@ -15,8 +17,8 @@ const httpOptions = {
 })
 export class UtilisateurService {
 
-  log = 'http://localhost:8080/api/auth/connexion';
-  
+  log = 'http://localhost:8080/urgence/auth/connexion';
+
   constructor(private http : HttpClient) { }
 
   login(credentials: ICredentials): Observable<IToken>{
@@ -46,5 +48,10 @@ export class UtilisateurService {
       },
       httpOptions
     );
+  }
+
+  //user par username
+  getUsername(username: String): Observable<any>{
+    return this.http.get(`http://localhost:8080/api/auth/user/${username}`)
   }
 }
