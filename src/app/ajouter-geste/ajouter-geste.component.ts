@@ -43,7 +43,7 @@ export class AjouterGesteComponent implements OnInit {
     }
 
     filechange1(event: any){
-      this.img1 = event.target.files[0]
+      this.img2 = event.target.files[0]
     }
 
 
