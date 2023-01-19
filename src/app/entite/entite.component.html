@@ -49,10 +49,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let liste of eliste">
+            <tr *ngFor="let liste of eliste let i = index">
               <th scope="row">{{liste.nom}}</th>
               <td>{{liste.numero}}</td>
-              <td>{{eliste[0].user.username}}</td>
+              <td>{{eliste[i].user.username}}</td>
               <td><a routerLink="['', 'liste.id']"><i class="bi bi-pencil-square mx-auto"></i></a>  <a routerLink="['', 'liste.id']" ><i class="bi bi-trash3 mx-2"></i></a></td>
             </tr>
           </tbody>

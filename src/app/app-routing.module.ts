@@ -6,6 +6,7 @@ import { AjouterGesteComponent } from './ajouter-geste/ajouter-geste.component';
 import { AjouterResponsableComponent } from './ajouter-responsable/ajouter-responsable.component';
 import { EntiteComponent } from './entite/entite.component';
 import { LoginComponent } from './login/login.component';
+import { ProfilComponent } from './profil/profil.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: "ajouter_geste",
     component: AjouterGesteComponent,
+  },
+  {
+    path: "profile",
+    component: ProfilComponent,
   },
 ];
 

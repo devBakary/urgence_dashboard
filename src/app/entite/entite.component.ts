@@ -18,6 +18,8 @@ export class EntiteComponent implements OnInit {
     //la liste des entites
     this.eservice.getEntite().subscribe(data =>{
       this.eliste = data;
+      console.log(data);
+
       console.log(data[0].user.username)
     })
 

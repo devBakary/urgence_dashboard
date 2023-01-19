@@ -42,11 +42,10 @@ numero: string ='';
   }
 
   //ajouter une nouvelle ent
-  onSubmit(){
+  ajoutEntite(){
 
     this.eservice.addEntite(this.nom, this.numero, this.img, this.id).subscribe(data =>{
       this.adEntite = data;
-      console.log(")))))))))))àààààààààààààààààà",data);
 
     })
   }

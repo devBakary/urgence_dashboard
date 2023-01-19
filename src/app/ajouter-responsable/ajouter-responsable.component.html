@@ -1,1 +1,127 @@
-<p>ajouter-responsable works!</p>
+<div class="Container xs" style="width: 100%;">
+
+  <div class="container-fluid mt-2 ct">
+
+    <div class="forme mx-auto d-block">
+      <div class="boite justify-content-center">
+      </div>
+
+      <p class="col">Ajouter une entité</p>
+
+
+      <div class="col">
+        <form
+              *ngIf="!isSuccessful"
+              name="form"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              #f="ngForm"
+              novalidate>
+                    <div class="row mb-2">
+                      <label class="label col-md-3 label-control">Username<span style="color: red;">*</span></label>
+                        <div class="col-md-9">
+                            <input type="text" id="floatingInput" class="form-control" placeholder="Nom d'utilisateur"
+                            name="username"
+                            [(ngModel)]="form.username"
+                            required
+                            minlength="3"
+                            maxlength="20"
+                            #username="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
+                        </div>
+                        <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+                          <div *ngIf="username.errors['required']">Username is required</div>
+                          <div *ngIf="username.errors['minlength']">
+                            Le nom d'utilisateur doit depasser 3 caracteres
+                          </div>
+                          <div *ngIf="username.errors['maxlength']">
+                            Le nom d'utilisateur ne doit pas depasser 20 caracteres
+                          </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="label col-md-3 label-control">Email<span style="color: red;">*</span></label>
+                        <div class="col-md-9">
+                            <input type="email" class="form-control" placeholder="le email"
+                            name="email"
+                            [(ngModel)]="form.email"
+                            required
+                            email
+                            #email="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && email.errors }" >
+                        </div>
+                        <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+                          <div *ngIf="email.errors['required']">Email is required</div>
+                          <div *ngIf="email.errors['email']">
+                            Email must be a valid email address
+                          </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-2">
+                      <label class="label col-md-3 label-control">Numero<span style="color: red;">*</span></label>
+                      <div class="col-md-9">
+                          <input type="text" class="form-control" placeholder="le numero de telephone"
+                          name="numero"
+                          [(ngModel)]="form.numero"
+                          required
+
+                          #numero="ngModel"
+                          [ngClass]="{ 'is-invalid': f.submitted && numero.errors }" >
+                      </div>
+                      <div class="invalid-feedback" *ngIf="numero.errors && f.submitted">
+                        <div *ngIf="numero.errors['required']">Le numero est obligatoire</div>
+                      </div>
+
+                  </div>
+
+                  <div class="row mb-2">
+                    <label class="label col-md-3 label-control">Adresse<span style="color: red;">*</span></label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" placeholder="l'adresse"
+                        name="adresse"
+                        [(ngModel)]="form.adresse"
+                        required
+                        #adresse="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && adresse.errors }" >
+                    </div>
+                    <div class="invalid-feedback" *ngIf="adresse.errors && f.submitted">
+                      <div *ngIf="adresse.errors['required']">L'adresse est obligatoire</div>
+                    </div>
+
+                </div>
+
+
+                    <div class="row mb-2">
+                        <label class="label col-md-3 label-control">Password<span style="color: red;">*</span></label>
+                        <div class="col-md-9">
+                            <input type="password" class="form-control" placeholder="mot de passe"
+                            name="password"
+                            [(ngModel)]="form.password"
+                            required
+                            minlength="6"
+                            #password="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
+                      </div>
+                    </div>
+
+                    <div class="row mt-3 mb-2 mx-auto d-block">
+                        <button type="submit" class="btn btn-outline-primary mx-auto d-block">Ajouter</button>
+                        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                          Erreur d'Inscription!<br />{{ errorMessage }}
+                        </div>
+                    </div>
+
+                    <div class="alert alert-success" *ngIf="isSuccessful">
+                      Enregistrer avec succes!
+                    </div>
+            </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

@@ -9,64 +9,37 @@
       <p class="col">Ajouter une entité</p>
 
       <div class="col">
-        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
-
-          <div class="form" >
-
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingInput"
-               [(ngModel)]="nom" name="nom"
-               required
-               minlength="3"
-               maxlength="20"
-               >
-              <label for="floatingInput">Nom</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="floatingInput"
-               [(ngModel)]="numero" name="numero"
-               required
-               minLength="8"
-               maxlength="8"
-               >
-               <!-- <div class="invalid-feedback" *ngIf="numero == null">
-                <div *ngIf="numero.errors['required']">Username is required</div>
-                <div *ngIf="username.errors['minlength']">
-                  Username must be at least 3 characters
-                </div>
-                <div *ngIf="numero.errors['maxlength']">
-                  Username must be at most 20 characters
-                </div>
-              </div> -->
-              <label for="floatingInput">Numero</label>
-            </div>
-
-            <div class="row mb-2">
-              <div class="mb-3">
-                <input class="form-control form-control-sm" id="formFileSm" accept="image/png, image/jpeg" type="file"
-                 name="img" formControlName="img"
-                 (change)="filechange($event)"
-                 required>
-              </div>
-            </div>
-
-            <div class="row mb-3">
-              <div class="col">
-                <select class="form-select" aria-label="select example" [(ngModel)]="id" name="id">
-                  <option selected>--Choisir responsable--</option>
-                  <option *ngFor="let liste of uliste" value="{{liste.id}}">{{liste.username}}</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="col text-center">
-              <button>Ajouter</button>
-            </div>
-
+        <div class="form">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="nom" name="nom">
+            <label for="floatingInput">Nom</label>
           </div>
-        </form>
 
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" [(ngModel)]="numero" name="numero">
+            <label for="floatingInput">Numero</label>
+          </div>
+
+          <div class="row mb-2">
+            <div class="mb-3">
+              <input class="form-control form-control-sm" id="formFileSm" accept="image/png, image/jpeg" type="file" name="img" formControlName="img" (change)="filechange($event)">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col">
+              <select class="form-select" aria-label="select example" [(ngModel)]="id" name="id">
+                <option selected>--Choisir responsable--</option>
+                <option *ngFor="let liste of uliste" value="{{liste.id}}">{{liste.username}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col text-center">
+            <button (click)="ajoutEntite()">Ajouter</button>
+          </div>
+
+        </div>
       </div>
     </div>
 
