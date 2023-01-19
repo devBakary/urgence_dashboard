@@ -3,6 +3,4 @@ export class Geste {
   description?: string;
   img1: any;
   img2: any;
-  img3: any;
-  img4: any;
 }

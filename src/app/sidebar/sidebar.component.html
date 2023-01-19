@@ -6,31 +6,31 @@
           <div class="col bg-warning py-5 mt-5 mb-2">
 
           </div>
-          <div class="mt-5 mb-5">
-              <ul class=" mt-4">
 
-                <li class="nav-item" *ngIf="showSuperAdminBoard">
-                  <a class="nav-link" href="/sidebar/entite">Dashbord</a>
-                </li>
+          <div class="li mt-5 mb-5">
 
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/sidebar/accueil">Accueil</a>
-                </li>
+            <div class="nav-item mb-2">
+              <a class="nav-link" routerLink="/sidebar/entite" [routerLinkActive]="'active'">Dashbords</a>
+            </div>
 
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/sidebar/ajouter_geste">Gestes</a>
-                </li>
+            <div class="nav-item mb-2">
+              <a class="nav-link" routerLink="/sidebar/accueil" [routerLinkActive]="'active'">Accueil</a>
+            </div>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Utilisateur</a>
-                </li>
-              </ul>
+            <div class="nav-item mb-2">
+              <a class="nav-link" routerLink="/sidebar/ajouter_geste" [routerLinkActive]="'active'">Gestes</a>
+            </div>
+
+            <div class="nav-item mb-5">
+              <a class="nav-link" href="/" [routerLinkActive]="'active'">Utilisateur</a>
+            </div>
+
+            <div class="nav-item mt-5">
+              <a class="nav-link mx-auto d-block mt-5" type="submit" (click)="deconect()">Deconnexion</a>
+            </div>
+
           </div>
-          <div class="mt-5">
-              <li class="nav-item" >
-                  <a class="nav-link me-2 ml-5" type="submit" (click)="deconect()">Deconnexion</a>
-              </li>
-          </div>
+
 
           <!-- </div> -->
       </div>
@@ -46,7 +46,7 @@
                   <i class="bi bi-list fa-3x mx-2"></i>
               </a>
 
-              <form class="d-none d-md-flex ms-4" >
+              <form class="d-none d-md-flex ms-4">
                   <input class="form-control border-0" type="search" placeholder="Search" style="background-color: #E6EAF1;">
                   <i class='bx bx-search icon ' style="font-size:35px"></i>
               </form>

@@ -1,5 +1,5 @@
 #sidebar{
-  background-color: red;
+  background-color: #648ED4;
   width: 17%;
 }
 .xs{
@@ -17,4 +17,15 @@
   padding: 10px;
   height: 75vh;
 }
-
+.li{
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+.active{
+  background-color: white;
+  border-radius: 5px;
+  padding: 8px;
+  color: black;
+  width: 100%;
+}

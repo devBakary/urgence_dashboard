@@ -17,6 +17,8 @@ export class SidebarComponent implements OnInit {
   currentUser: any;
   title = 'urgence_dashboard';
 
+  show = false
+
   constructor(
     private authService: UtilisateurService,
     private tokenService: TokenService,
@@ -24,6 +26,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void{
 
+    this.show = false
     this.isLogged = this.tokenService.isLogged();
 
     if (this.isLogged) {
