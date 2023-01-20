@@ -21,7 +21,14 @@
                   <div class="col-md-4">
                      <h2>Listes des Utilisateurs</h2>
                   </div>
-                  <div class="col-md-4 offset-md-4">
+
+                  <div class="col-md-3" >
+                    <button class="btn" *ngIf="showSuperAdminBoard" routerLink="/sidebar/ajouter_responsable">Ajouter responsable</button>
+                  </div>
+                  <div class="col-md-1">
+                    <button class="btn" routerLink="/sidebar/ajouter_responsabl">filtre</button>
+                  </div>
+                  <div class="col-md-4 ">
                       <form class="d-flex text-end mb-2">
                           <input type="search" class="form-control sh mx-auto" placeholder="Recherchez une dette">
                           <button class="btn" type="submit">Rechercher</button>

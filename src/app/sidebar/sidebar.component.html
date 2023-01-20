@@ -4,12 +4,12 @@
           style="height: 100vh;" >
 
           <div class="col bg-warning py-5 mt-5 mb-2">
-
+            {{username}}
           </div>
 
           <div class="li mt-5 mb-5">
 
-            <div class="nav-item mb-2">
+            <div class="nav-item mb-2" *ngIf="showSuperAdminBoard">
               <a class="nav-link" routerLink="/sidebar/entite" [routerLinkActive]="'active'">Dashbords</a>
             </div>
 
@@ -46,9 +46,16 @@
                   <i class="bi bi-list fa-3x mx-2"></i>
               </a>
 
-              <form class="d-none d-md-flex ms-4">
-                  <input class="form-control border-0" type="search" placeholder="Search" style="background-color: #E6EAF1;">
-                  <i class='bx bx-search icon ' style="font-size:35px"></i>
+              <form class="d-none d-md-flex mr-4">
+                <div id="container" type="submit" data-bs-toggle="modal" data-bs-target="#notif" class="mt-3">
+                  <i id="icon"  class="bi bi-bell-fill fa-2x mr-2 i"></i>
+                  <div class="number text-center mx-auto">
+                    <div class="" id="number">{{luelist.length}}</div>
+                  </div>
+
+                </div>
+                <i type="submit" data-bs-toggle="modal" data-bs-target="#user" class="bi bi-person-circle fa-3x mx-5"><span>{{username}}</span></i>
+
               </form>
           </nav>
             <router-outlet></router-outlet>
@@ -57,3 +64,205 @@
       </main>
   </div>
 </div>
+
+
+<!-- Le modal concernant les info de l'utilisateur -->
+<div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content mod">
+      <div class="modal-header">
+              <div class="col-md-6">
+                  <h5 class="title">Mon profil</h5>
+              </div>
+
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="container" *ngIf="currentUser;">
+          <header class="jumbotron">
+
+            <h5>
+              <strong> Nom d'utilisateur: </strong> {{currentUser.username}}
+            </h5>
+            <h5>
+              <strong>Email:</strong>
+              {{ currentUser.email }}
+            </h5>
+            <h5>
+              <strong>Numero:</strong>
+              {{ currentUser.numero }}
+            </h5>
+            <h5>
+              <strong>Adresse: </strong>
+              {{ currentUser.adresse }}
+            </h5>
+          </header>
+          <div class="text-end">
+            <button class="btn btn-outline-success text-center" data-bs-toggle="modal" data-bs-target="#profil"> Modifier</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- la notif -->
+
+<div class="modal fade" id="notif" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+              <div class="col-md-6">
+                  <h5 class="title">Notification</h5>
+              </div>
+
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="container content-notif">
+          <header class="jumbotron" type="submit" *ngFor="let liste of eliste">
+            <div class="">
+              <div class="mx-2 d-md-flex bl" *ngIf="liste.etat ==0 ">
+
+                <label class="signe" for=""></label>
+                <label class="mx-2 txt"> Non lue</label>
+
+              </div>
+              <h5 (click)="onSubmit(liste.id)">
+                <strong> {{liste.date}} </strong>
+              </h5>
+              <h5>
+                  {{liste.message}}
+                </h5>
+            </div>
+
+          </header>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- pour la modification du profil -->
+<div class="modal fade " id="profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content body">
+      <div class="modal-header">
+        <div class="col-md-6">
+            <h5 class="title">Mon profil</h5>
+        </div>
+
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container">
+          <div class="row">
+            <!-- premiere partie -->
+            <div class="col-md-3 f-part">
+              <div class="text-center mt-5">
+                <i class="bi bi-person-circle fa-3x mx-auto"></i>
+              </div>
+              <div class="text-center" style="font-size: 24px; font-weight: bold;">
+                {{username}}
+              </div>
+              <div class="text-center mt-4">
+                <img style="width: 60px;" src="/../assets/setting.gif" alt="setting">
+              </div>
+              <div class=" compte">
+                <span class="text-center" style="font-size: 18px!important; font-weight: bold;" >Compte</span>
+              </div>
+            </div>
+
+            <!-- part deux -->
+            <div class="col-md-9">
+              <div class="" style="font-size: 24px; font-weight: bold;">
+                Paramètre du compte
+              </div>
+              <div class="trait mb-2" style="border: 3px solid bleu; width: 20px;"></div>
+
+              <div class="col-md-12 text-center msg" *ngIf="msg">{{msg}}</div>
+              <div class="col bg-warning bg-danger" *ngIf="ms">{{ms}}</div>
+              <div class="row">
+
+                <div class="col-md-6">
+
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Username</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"  [(ngModel)]="usernames">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="email">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Adresse</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="adresse">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Numero</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="numero">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    <label for="exampleFormControlInput1" class="form-label">Role</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" disabled placeholder="{{ currentUser.roles }}">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-4">
+                    <label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="password">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="">
+                    <button class="btn btn-outline-success" (click)="userModif()"> Enregistrer</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="text-end">
+                    <button class="btn btn-outline-success text-center"> Annuler</button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+

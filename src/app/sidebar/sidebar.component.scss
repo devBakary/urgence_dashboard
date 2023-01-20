@@ -29,3 +29,103 @@
   color: black;
   width: 100%;
 }
+
+span{
+  font-size: 30px!important;
+}
+
+#icon {
+  transform: rotate(15deg);
+}
+
+#container {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+#icon {
+  position: absolute;
+  // font-size: 30px;
+  color: blue;
+}
+.number{
+  position: absolute;
+  right: 20%;
+  top: 10%;
+  padding: 2px;
+  border-radius: 100%;
+  background-color: red;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#number {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10%;
+}
+
+#container {
+  animation: rotation 2s linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(30deg);
+  }
+}
+
+.signe{
+  height: 15px;
+  width: 15px;
+  background-color: blue;
+  border-radius: 100%;
+}
+.txt{
+  font-size: 20px;
+  color: blue;
+}
+.content-notif{
+  overflow: auto;
+  height: 400px;
+}
+
+.bl:hover::after {
+  content: "Appuyer pour marquer comme lu";
+  color: red;
+  position: relative;
+  margin-top: 25px;
+  right: 15%;
+}
+
+
+
+//pour le modale de la modifiaction du profil
+.body{
+  // width: 100%;
+  // height: 450px;
+  padding: 10px;
+}
+
+.f-part{
+  background-color: white;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.8)!important;
+}
+.trait{
+  border: 2px solid blue;
+  width: 300px;
+}
+.form-control{
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6)!important;
+}
+.msg{
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #EB8024;
+}

@@ -22,13 +22,16 @@
 }
 .boite{
   position: relative;
+  background-image: url("/../assets/police.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 70px;
   height: 70px;
-  background-color: #B3B3B3;
   bottom: 10%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 100%;
+  padding: 5px;
 }
 p{
   position: relative;
@@ -53,4 +56,13 @@ button
 button:hover{
   border: .1px solid white;
   transition: 3s;
+}
+
+
+
+.bt{
+  background-image: url("/../assets/imge.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px;
 }

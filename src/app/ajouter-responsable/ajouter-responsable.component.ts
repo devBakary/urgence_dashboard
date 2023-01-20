@@ -44,6 +44,7 @@ export class AjouterResponsableComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        location.reload();
       },
       error: err => {
         this.errorMessage = err.error.message;

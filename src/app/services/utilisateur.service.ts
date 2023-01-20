@@ -54,4 +54,18 @@ export class UtilisateurService {
   getUsername(username: String): Observable<any>{
     return this.http.get(`http://localhost:8080/api/auth/user/${username}`)
   }
+
+  //pour modifier le compte
+  updateUser(username: string, email: string, numero: string, adresse: string, password: string, id: number){
+    return this.http.put(`http://localhost:8080/urgence/auth/modifier/${id}`,
+    {
+      username,
+      email,
+      numero,
+      adresse,
+      password
+    },
+    httpOptions
+    )
+  }
 }
