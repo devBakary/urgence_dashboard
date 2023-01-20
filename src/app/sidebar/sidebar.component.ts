@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { EntiteService } from '../services/entite.service';
 import { UtilisateurService } from '../services/utilisateur.service';
 import { TokenService } from '../_services/token.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,6 +27,7 @@ export class SidebarComponent implements OnInit {
   msg: any
   uliste: any
   ms: any;
+  vrai: boolean = false;
 
 
 
@@ -111,26 +113,44 @@ export class SidebarComponent implements OnInit {
     password: string = '';
 
   userModif(){
-    this.uservice.updateUser(this.usernames, this.email, this.numero,
-      this.adresse, this.password, this.iduser).subscribe(data =>{
+    if(this.adresse == '' || this.usernames == '' || this.email == '' || this.email == ''){
+        swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: 'Tous les champs doivent être remplis !',
+        })
+        // this.msg = ("Veuillez remplir tous les champs!")
+      }
+      else
+    if(this.password == '' ){
+      swal.fire({
+        icon: 'warning',
+        title: 'Veuillez renseigner le mot de passe pour continuer ...',
 
-        if(this.usernames == null ||  this.email == null || this.numero == null ||
-          this.adresse == '' || this.usernames == '' || this.email == '' || this.email == '' || this.password == '' ){
-            this.msg = alert("Veuillez remplir tous les champs!")
-          }
-          else if(this.password == ''){
-            this.ms = alert("veuillez renseigner le mot de passe pour continuer!")
-          }
-          else{
+      })
+      }
+      else{
+        this.uservice.updateUser(this.usernames, this.email, this.numero,
+          this.adresse, this.password, this.iduser).subscribe(data =>{
+
             this.upUser = data;
-            location.reload();
-            console.log("ma console", data);
+              swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Modifier avec succes !',
+              showConfirmButton: false,
+              timer: 1500
+            }).then((result) => {
+              location.reload();
+             })
 
-          }
+        })
 
 
-    })
+      }
+
   }
+  
 
   deconect(): void{
     this.tokenService.logout()

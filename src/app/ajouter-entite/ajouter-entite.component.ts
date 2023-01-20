@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Entite } from '../models/entite';
 import { EntiteService } from '../services/entite.service';
 import { UtilisateurService } from '../services/utilisateur.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ajouter-entite',
@@ -43,11 +44,29 @@ numero: string ='';
 
   //ajouter une nouvelle ent
   ajoutEntite(){
+    if(this.nom == '', this.numero == '', this.img == '', this.id == ''){
+      swal.fire({
+        icon: 'warning',
+        title: 'Veuillez renseigner le mot de passe pour continuer ...',  
+      })
+    }
 
-    this.eservice.addEntite(this.nom, this.numero, this.img, this.id).subscribe(data =>{
-      this.adEntite = data;
+    else{
+      this.eservice.addEntite(this.nom, this.numero, this.img, this.id).subscribe(data =>{
+        this.adEntite = data;
+        swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Entité ajouter avec succes !',
+          showConfirmButton: false,
+          timer: 1500
+        }).then((result) => {
+          location.reload();
+         })
 
-    })
+      })
+    }
+
   }
 
 }

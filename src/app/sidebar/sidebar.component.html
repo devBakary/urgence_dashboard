@@ -132,7 +132,7 @@
 
 
         <div class="container content-notif">
-          <header class="jumbotron" type="submit" *ngFor="let liste of eliste">
+          <header (click)="onSubmit(liste.id)" class="jumbotron" type="submit" *ngFor="let liste of eliste">
             <div class="">
               <div class="mx-2 d-md-flex bl" *ngIf="liste.etat ==0 ">
 
@@ -140,7 +140,7 @@
                 <label class="mx-2 txt"> Non lue</label>
 
               </div>
-              <h5 (click)="onSubmit(liste.id)">
+              <h5>
                 <strong> {{liste.date}} </strong>
               </h5>
               <h5>
@@ -197,8 +197,6 @@
               </div>
               <div class="trait mb-2" style="border: 3px solid bleu; width: 20px;"></div>
 
-              <div class="col-md-12 text-center msg" *ngIf="msg">{{msg}}</div>
-              <div class="col bg-warning bg-danger" *ngIf="ms">{{ms}}</div>
               <div class="row">
 
                 <div class="col-md-6">
