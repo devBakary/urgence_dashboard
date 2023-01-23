@@ -68,4 +68,9 @@ export class UtilisateurService {
     httpOptions
     )
   }
+
+  //supprimer un user
+  suppUser(id: number):Observable<any>{
+    return this.http.delete(`http://localhost:8080/urgence/auth/supprimer/${id}`)
+  }
 }

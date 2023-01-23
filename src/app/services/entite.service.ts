@@ -37,4 +37,9 @@ export class EntiteService {
     data.append('img', img);
     return this.http.post(`http://localhost:8080/urgence/entite/creer/${id}`,data)
   }
+
+  //supprimer une entite
+  suppEntite(id: number):Observable<any>{
+    return this.http.delete(`http://localhost:8080/urgence/entite/delete/${id}`)
+  }
 }

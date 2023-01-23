@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EntiteService } from '../services/entite.service';
 import { UtilisateurService } from '../services/utilisateur.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-entite',
@@ -27,6 +28,31 @@ export class EntiteComponent implements OnInit {
     this.uservice.getUser().subscribe(data =>{
       this.uliste = data;
     })
+  }
+
+  //supprimer une entité
+  supprimer(id: number){
+    swal.fire({
+      title: 'Vous êtes sur de vouloir supprimé ?',
+      text: "Cette action est irreversible!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Continuer'
+    }).then((result) => {
+      this.eservice.suppEntite(id).subscribe(data =>{
+        location.reload();
+      })
+      if (result.isConfirmed) {
+        swal.fire(
+          'Supprimer !',
+          'L\'entité a été supprimer.',
+          'success',
+        )
+      }
+    })
+
   }
 
 }

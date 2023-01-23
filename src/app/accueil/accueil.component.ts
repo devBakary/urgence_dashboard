@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilisateurService } from '../services/utilisateur.service';
 import { TokenService } from '../_services/token.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-accueil',
@@ -39,6 +40,31 @@ export class AccueilComponent implements OnInit {
       this.uliste = data;
       // console.log(data)
     })
+  }
+
+   //supprimer une user
+   supprimer(id: number){
+    swal.fire({
+      title: 'Vous êtes sur de vouloir supprimé ?',
+      text: "Cette action est irreversible!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Continuer'
+    }).then((result) => {
+      this.uservice.suppUser(id).subscribe(data =>{
+        location.reload();
+      })
+      if (result.isConfirmed) {
+        swal.fire(
+          'Supprimer !',
+          'L\'utilisateur a été supprimer.',
+          'success',
+        )
+      }
+    })
+
   }
 
 }
