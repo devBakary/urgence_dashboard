@@ -30,11 +30,12 @@ export class EntiteService {
   }
 
   //pour ajouter une entité
-  addEntite(nom: string, numero: string, img: any, id: number):Observable<any>{
+  addEntite(nom: string, numero: string, img: any,audio: any, id: number):Observable<any>{
     let data = new FormData();
     data.append('nom', nom);
     data.append('numero', numero);
     data.append('img', img);
+    data.append('audio', audio)
     return this.http.post(`http://localhost:8080/urgence/entite/creer/${id}`,data)
   }
 

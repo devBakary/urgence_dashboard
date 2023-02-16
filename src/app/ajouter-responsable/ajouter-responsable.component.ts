@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { UtilisateurService } from '../services/utilisateur.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ajouter-responsable',
@@ -41,10 +42,17 @@ export class AjouterResponsableComponent implements OnInit {
 
     this.uservice.addRespon(username, email, numero, adresse, password).subscribe({
       next: data => {
-        console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        location.reload();
+        swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Responsable ajouter avec succes !',
+          showConfirmButton: false,
+          timer: 1500
+        }).then((result) => {
+          location.reload();
+         });
       },
       error: err => {
         this.errorMessage = err.error.message;

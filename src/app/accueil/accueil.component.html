@@ -27,7 +27,7 @@
                   </div>
                   <div class="col-md-4 offset-md-1 ">
                       <form class="d-flex text-end mb-2">
-                          <input type="search" class="form-control sh mx-auto" placeholder="Recherchez une dette">
+                          <input type="search" class="form-control sh mx-auto" placeholder="Recherchez une dette" [(ngModel)]="searchTerm">
                           <button  type="submit">Rechercher</button>
                         </form>
                   </div>
@@ -44,7 +44,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let liste of uliste">
+                <tr *ngFor="let liste of uliste | paginate:{itemsPerPage:4, currentPage:page} | filter: searchTerm;">
                   <th scope="row">{{liste.username}}</th>
                   <td>{{liste.email}}</td>
                   <td>{{liste.numero}}</td>
@@ -54,6 +54,8 @@
                 </tr>
               </tbody>
               </table>
+              <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant">
+              </pagination-controls>
           </div>
 
       </div>

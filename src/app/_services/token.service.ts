@@ -23,7 +23,7 @@ export class TokenService {
   //methode pour recuperer le token dans le localstorage
   isLogged(): boolean{
     const token = window.localStorage.getItem('token')
-    // console.log(token)
+    //console.log("je sui cccccccccccc" + token)
     return !! token
   }
   public getUser(): any {

@@ -15,8 +15,10 @@ export class AccueilComponent implements OnInit {
   isLogged = false;
   showAdminBoard = false;
   showSuperAdminBoard = false;
-  username?: string;
+  username?: string
   currentUser: any;
+  searchTerm:  any ;
+  page: number = 1;
   constructor( private uservice: UtilisateurService, private tokenService: TokenService) { }
 
   ngOnInit(): void {

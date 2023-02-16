@@ -19,21 +19,18 @@
               <label for="floatingPassword">Description</label>
             </div>
           </div>
+          <div class="row">
+            <div class="form-floating col-9 mx-4 mb-4">
+              <input type="text" class="form-control" id="floatingPassword" placeholder="https//youtube.com" [(ngModel)]="lien">
+              <label for="floatingPassword">Le lien de la video youtube</label>
+            </div>
+          </div>
 
           <div class="row ">
             <div class=" col-9 mx-4 mb-4">
               <input class="form-control form-control-sm" id="formFileSm" accept="image/png, image/jpeg" type="file" name="img1" formControlName="img1" (change)="filechange($event)">
             </div>
           </div>
-
-          <div class="row ">
-            <div class=" col-9 mx-4 mb-4">
-              <input class="form-control form-control-sm" id="formFileSm" accept="image/png, image/jpeg" type="file" name="img2" formControlName="img2" (change)="filechange1($event)">
-            </div>
-          </div>
-
-
-
 
           <button class="mx-auto d-block text-center" (click)="onSubmit()">Ajouter</button>
 
