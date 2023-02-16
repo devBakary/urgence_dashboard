@@ -43,4 +43,9 @@ export class EntiteService {
   suppEntite(id: number):Observable<any>{
     return this.http.delete(`http://localhost:8080/urgence/entite/delete/${id}`)
   }
+
+  //liste des signale
+  getSignale(): Observable<any>{
+    return this.http.get(`http://localhost:8080/urgence/signale/liste`);
+  }
 }

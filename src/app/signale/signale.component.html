@@ -1,0 +1,61 @@
+<div class="Container xs" style="width: 100%;">
+
+  <div class="container-fluid mt-4 ct">
+
+      <div class="row mx-auto mb-3">
+          <div class="col-md-8"></div>
+          <div class="col-md-4 align-items-end">
+              <div class="card mx-auto" >
+                  <div class="card-body text-center">
+                      <h3 class="card-title">{{sliste.length}}</h3>
+                      <h3 class="card-subtitle mb-2 text-muted" style="color: red!important;">Signales</h3>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- debut de la table -->
+
+      <div class="table-responsive-sm mx-auto tb">
+          <div class="row">
+              <div class="col-md-4">
+                 <h2>Liste des Signales</h2>
+              </div>
+
+
+              <div class="col-md-4 offset-md-1 ">
+                  <form class="d-flex text-end mb-2">
+                      <input type="search" class="form-control sh mx-auto" placeholder="Recherchez une dette" >
+                      <button  type="submit">Rechercher</button>
+                    </form>
+              </div>
+          </div>
+          <table class="table mx-auto text-center">
+          <thead>
+            <tr class="tables" >
+              <th scope="col" style="border-radius: 10px 0 0 0 ;">Date</th>
+              <th scope="col">Longitude</th>
+              <th scope="col">Latitude</th>
+              <th scope="col">Entite</th>
+              <th scope="col">Utilisateur</th>
+              <th scope="col" style="border-radius: 0 10px 0 0 ;" >Numero</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let liste of sliste | paginate:{itemsPerPage:4, currentPage:page} let i = index ">
+              <th scope="row">{{liste.date}}</th>
+              <td>{{liste.longitude}}</td>
+              <td>{{liste.latitude}}</td>
+              <td> {{liste.entite.nom}}</td>
+              <td>{{liste.user.username}}</td>
+              <td>{{liste.user.numero}}</td>
+            </tr>
+          </tbody>
+          </table>
+          <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant">
+          </pagination-controls>
+      </div>
+
+  </div>
+</div>
+

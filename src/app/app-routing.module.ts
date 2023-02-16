@@ -9,6 +9,7 @@ import { AuthGuard } from './Helper/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { ProfilComponent } from './profil/profil.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SignaleComponent } from './signale/signale.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
     {
       path: "ajouter_geste",
       component: AjouterGesteComponent
+    },
+    {
+      path: "signale",
+      component: SignaleComponent
     },
     {
       path: "profile",

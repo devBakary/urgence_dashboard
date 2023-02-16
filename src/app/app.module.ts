@@ -15,6 +15,8 @@ import { ProfilComponent } from './profil/profil.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { SignaleComponent } from './signale/signale.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AjouterGesteComponent,
     LoginComponent,
     ProfilComponent,
-    SidebarComponent
+    SidebarComponent,
+    SignaleComponent,
+    UtilisateurComponent
   ],
   imports: [
     BrowserModule,
