@@ -83,6 +83,15 @@ export class SidebarComponent implements OnInit {
       this.luelist = data;
     })
 
+    //liste des utilisateurs
+    this.uservice.getUserId(this.iduser).subscribe(data =>{
+      this.uliste = data;
+      console.log('dfghjkkjhckjhgf,bvbn');
+
+      console.log(data);
+
+    })
+
 
   }
   //modification de l'etat
@@ -150,7 +159,7 @@ export class SidebarComponent implements OnInit {
       }
 
   }
-  
+
 
   deconect(): void{
     this.tokenService.logout()

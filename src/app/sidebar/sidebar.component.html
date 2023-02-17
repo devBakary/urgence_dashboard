@@ -8,24 +8,20 @@
 
           <div class="li mt-5 mb-5">
 
-            <div class="nav-item mb-2" *ngIf="showSuperAdminBoard">
+            <div class="nav-item mb-3" *ngIf="showSuperAdminBoard">
               <a class="nav-link" routerLink="/sidebar/entite" [routerLinkActive]="'active'">Dashbords</a>
             </div>
 
-            <div class="nav-item mb-2">
+            <div class="nav-item mb-3">
               <a class="nav-link" routerLink="/sidebar/accueil" [routerLinkActive]="'active'">Accueil</a>
             </div>
 
-            <div class="nav-item mb-2">
+            <div class="nav-item mb-3">
               <a class="nav-link" routerLink="/sidebar/ajouter_geste" [routerLinkActive]="'active'">Gestes de secours</a>
             </div>
 
-            <div class="nav-item mb-2">
-              <a class="nav-link" routerLink="/sidebar/signale" [routerLinkActive]="'active'">Signale de danger</a>
-            </div>
-
             <div class="nav-item mb-5">
-              <a class="nav-link" href="/" [routerLinkActive]="'active'">Utilisateur</a>
+              <a class="nav-link" routerLink="/sidebar/signale" [routerLinkActive]="'active'">Signale de danger</a>
             </div>
 
             <div class="nav-item mt-5">
@@ -82,7 +78,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" *ngFor="let liste of uliste">
 
 
         <div class="container" *ngIf="currentUser;">
@@ -93,15 +89,15 @@
             </h5>
             <h5>
               <strong>Email:</strong>
-              {{ currentUser.email }}
+              {{ liste.email }}
             </h5>
             <h5>
               <strong>Numero:</strong>
-              {{ currentUser.numero }}
+              {{ liste.numero }}
             </h5>
             <h5>
               <strong>Adresse: </strong>
-              {{ currentUser.adresse }}
+              {{ liste.adresse }}
             </h5>
           </header>
           <div class="text-end">

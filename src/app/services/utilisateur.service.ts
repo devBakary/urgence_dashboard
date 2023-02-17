@@ -52,7 +52,12 @@ export class UtilisateurService {
 
   //user par username
   getUsername(username: String): Observable<any>{
-    return this.http.get(`http://localhost:8080/api/auth/user/${username}`)
+    return this.http.get(`http://localhost:8080/urgence/auth/user/${username}`)
+  }
+
+  //user par id
+  getUserId(id: number): Observable<any>{
+    return this.http.get(`http://localhost:8080/urgence/auth/liste/${id}`)
   }
 
   //pour modifier le compte
