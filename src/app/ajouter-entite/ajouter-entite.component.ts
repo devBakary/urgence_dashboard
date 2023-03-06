@@ -50,29 +50,57 @@ numero: string ='';
 
   //ajouter une nouvelle ent
   ajoutEntite(){
-    if(this.nom == '', this.numero == '', this.img == '', this.id == '', this.audio == ''){
+    if(this.nom == '' || this.numero == ''|| this.img == ''|| this.id == '' || this.audio == ''){
       swal.fire({
         icon: 'warning',
         title: 'Veuillez renseigner tous les champs !',
       })
+    }else if(this.nom.length != 8){
+      swal.fire({
+        icon: 'warning',
+        title: 'Le numero doit contenir huit chiffres !',
+      })
     }
 
     else{
-      this.eservice.addEntite(this.nom, this.numero, this.img, this.audio, this.id).subscribe(data =>{
-        this.adEntite = data;
+      this.eservice.addEntite(this.nom, this.numero, this.img, this.audio, this.id).subscribe({
+        next : data =>{
+          this.adEntite = data;
+          swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Entité ajouter avec succes !',
+            showConfirmButton: false,
+            timer: 1500
+          }).then((result) => {
+            location.reload();
+           });
 
-        location.reload();
-        swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Entité ajouter avec succes !',
-          showConfirmButton: false,
-          timer: 1500
-        }).then((result) => {
-          location.reload();
-         })
 
-      })
+        },
+        error: e => {
+          if(e.status == 200) {
+            swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Entité ajouter avec succes !',
+              showConfirmButton: false,
+              timer: 1500
+            }).then((result) => {
+              location.reload();
+             });
+          }
+          else{
+            swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Il y a eu un probleme!'
+            })
+
+          }
+        }
+      });
+
     }
 
   }

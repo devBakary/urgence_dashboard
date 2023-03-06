@@ -45,20 +45,55 @@ export class AjouterGesteComponent implements OnInit {
 
 
   onSubmit(){
-    this.gservice.addGeste(this.nom, this.description, this.img1, this.lien, this.iduser).subscribe(
-      data =>{
-        this.ajoutGeste = data;
-        swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Ajouter avec succes !',
-          showConfirmButton: false,
-          timer: 1500
-        }).then((result) => {
-          location.reload();
-         })
-      }
-    )
+    if(this.nom == '' || this.description == ''|| this.lien == ''|| this.img1 == ''){
+      swal.fire({
+        icon: 'warning',
+        title: 'Veuillez renseigner tous les champs !',
+      })
+    }
+    else{
+      this.gservice.addGeste(this.nom, this.description, this.img1, this.lien, this.iduser).subscribe(
+
+        {
+          next : data =>{
+            this.ajoutGeste = data;
+            swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Entité ajouter avec succes !',
+              showConfirmButton: false,
+              timer: 1500
+            }).then((result) => {
+              location.reload();
+             });
+
+
+          },
+          error: e => {
+            if(e.status == 200) {
+              swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Entité ajouter avec succes !',
+                showConfirmButton: false,
+                timer: 1500
+              }).then((result) => {
+                location.reload();
+               });
+            }
+            else{
+              swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Il y a eu un probleme!'
+              })
+
+            }
+          }
+
+        })
+    }
+
   }
 
 

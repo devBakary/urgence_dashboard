@@ -8,7 +8,7 @@
                   <div class="card mx-auto" >
                       <div class="card-body text-center">
                           <h3 class="card-title">{{uliste.length}}</h3>
-                          <h3 class="card-subtitle mb-2 text-muted" style="color: red!important;">Utilisateurs</h3>
+                          <h3 class="card-subtitle mb-2 text-muted" style="color: red!important;"><i class="bi bi-person-fill mx-1"></i>Utilisateurs</h3>
                       </div>
                   </div>
               </div>
@@ -23,14 +23,14 @@
                   </div>
 
                   <div class="col-md-3" >
-                    <button class="btn" *ngIf="showSuperAdminBoard" routerLink="/sidebar/ajouter_responsable">Ajouter responsable</button>
+                    <button class="btne" *ngIf="showSuperAdminBoard" routerLink="/sidebar/ajouter_responsable">Ajouter responsable</button>
                   </div>
-                  <div class="col-md-4 offset-md-1 ">
+                  <!-- <div class="col-md-4 offset-md-1 ">
                       <form class="d-flex text-end mb-2">
                           <input type="search" class="form-control sh mx-auto" placeholder="Recherchez une dette" [(ngModel)]="searchTerm">
                           <button  type="submit">Rechercher</button>
                         </form>
-                  </div>
+                  </div> -->
               </div>
               <table class="table mx-auto text-center">
               <thead>
@@ -39,8 +39,8 @@
                   <th scope="col">Email</th>
                   <th scope="col">Numero</th>
                   <th scope="col">Adresse</th>
-                  <th scope="col">Role</th>
-                  <th scope="col" style="border-radius: 0 10px 0 0 ;" *ngIf="showSuperAdminBoard">Action
+                  <th scope="col" style="border-radius: 0 10px 0 0 ;">Role</th>
+                  <!-- <th scope="col" style="border-radius: 0 10px 0 0 ;" *ngIf="showSuperAdminBoard">Action -->
                 </tr>
               </thead>
               <tbody>
@@ -50,7 +50,7 @@
                   <td>{{liste.numero}}</td>
                   <td> {{liste.adresse}}</td>
                   <td >{{liste.roles[0].name}}</td>
-                  <td *ngIf="showSuperAdminBoard"><a type="submit" (click)="supprimer(liste.id)"><i class="bi bi-trash3 mx-2" style="color: red;"></i></a></td>
+                  <!-- <td *ngIf="showSuperAdminBoard"><a type="submit" (click)="supprimer(liste.id)"><i class="bi bi-trash3 mx-2" style="color: red;"></i></a></td> -->
                 </tr>
               </tbody>
               </table>

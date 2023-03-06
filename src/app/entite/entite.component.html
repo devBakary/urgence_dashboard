@@ -9,7 +9,7 @@
               <div class="card mx-2" >
                 <div class="card-body text-center">
                     <h3 class="card-title">{{eliste.length}}</h3>
-                    <h3 class="card-subtitle mb-2 text-muted" style="color: red!important;">Etités</h3>
+                    <h3 class="card-subtitle mb-2 text-muted" style="color: red!important;"><i class="bi bi-house mx-1"></i>Etités</h3>
                 </div>
               </div>
             </div>
@@ -18,7 +18,7 @@
                 <div class="card mx-2" >
                     <div class="card-body text-center">
                         <h3 class="card-title">{{uliste.length}}</h3>
-                        <h3 class="card-subtitle mb-2 text-muted" style="color: red!important;">Utilisateurs</h3>
+                        <h3 class="card-subtitle mb-2 text-muted" style="color: red!important;"><i class="bi bi-person-fill mx-1"></i>Utilisateurs</h3>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
               </div>
 
               <div class="col-md-4 text-center ">
-                  <button class="btn mx-5" routerLink="/sidebar/ajouter_entite">Ajouter une Entite</button>
+                  <button class=" mx-5" routerLink="/sidebar/ajouter_entite">Ajouter une Entite</button>
               </div>
           </div>
           <table class="table mx-auto text-center">
@@ -50,14 +50,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let liste of eliste let i = index">
+            <tr *ngFor="let liste of eliste | paginate:{itemsPerPage:4, currentPage:page} let i = index">
               <th scope="row">{{liste.nom}}</th>
               <td>{{liste.numero}}</td>
               <td>{{eliste[i].user.username}}</td>
-              <td><a routerLink="['', 'liste.id']"><i class="bi bi-pencil-square mx-auto"></i></a>  <a type="submit" (click)="supprimer(liste.id)" ><i class="bi bi-trash3 mx-2" style="color: red;"></i></a></td>
+              <td><a routerLink="['', 'liste.id']"></a>  <a type="submit" (click)="supprimer(liste.id)" ><i class="bi bi-trash3 mx-2" style="color: red;"></i></a></td>
             </tr>
           </tbody>
           </table>
+          <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant">
+          </pagination-controls>
       </div>
 
 

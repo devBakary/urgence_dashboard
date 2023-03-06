@@ -12,6 +12,7 @@ export class EntiteComponent implements OnInit {
 
   eliste : any
   uliste : any
+  page: number = 1;
   constructor(private eservice : EntiteService, private uservice: UtilisateurService) { }
 
   ngOnInit(): void {

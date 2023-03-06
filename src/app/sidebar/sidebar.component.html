@@ -9,23 +9,23 @@
           <div class="li mt-5 mb-5">
 
             <div class="nav-item mb-3" *ngIf="showSuperAdminBoard">
-              <a class="nav-link" routerLink="/sidebar/entite" [routerLinkActive]="'active'">Dashbords</a>
+              <a class="nav-link" routerLink="/sidebar/entite" [routerLinkActive]="'active'"><i class="bi bi-grid mx-2"></i>Dashbords</a>
             </div>
 
             <div class="nav-item mb-3">
-              <a class="nav-link" routerLink="/sidebar/accueil" [routerLinkActive]="'active'">Accueil</a>
+              <a class="nav-link" routerLink="/sidebar/accueil" [routerLinkActive]="'active'"><i class="bi bi-house-door mx-2"></i>Accueil</a>
             </div>
 
             <div class="nav-item mb-3">
-              <a class="nav-link" routerLink="/sidebar/ajouter_geste" [routerLinkActive]="'active'">Gestes de secours</a>
+              <a class="nav-link" routerLink="/sidebar/ajouter_geste" [routerLinkActive]="'active'"><i class="bi bi-bandaid mx-1"></i>Gestes de secours</a>
             </div>
 
             <div class="nav-item mb-5">
-              <a class="nav-link" routerLink="/sidebar/signale" [routerLinkActive]="'active'">Signale de danger</a>
+              <a class="nav-link" routerLink="/sidebar/signale" [routerLinkActive]="'active'"><i class="bi bi-exclamation-diamond-fill mx-1"></i>Signale de danger</a>
             </div>
 
             <div class="nav-item mt-5">
-              <a class="nav-link mx-auto d-block mt-5" type="submit" (click)="deconect()">Deconnexion</a>
+              <a class="nav-link mx-auto d-block mt-5" type="submit" (click)="deconect()"><i class="bi bi-box-arrow-right mx-2"></i>Deconnexion</a>
             </div>
 
           </div>

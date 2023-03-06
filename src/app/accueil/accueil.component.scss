@@ -26,6 +26,12 @@ border-radius: 5px;
 }
 button{
 background: none;
-border: 1px solid #f58f29!important;
+border: 1px solid blue!important;
 color: black!important;
+padding: 10px;
+border-radius: 8px;
+}
+button:hover{
+  background-color: #4464ad!important;
+  padding: 10px;
 }
